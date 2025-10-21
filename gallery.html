@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galerie – Havan Lounge Bar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { dark: '#0a0a0a', primary: '#c5a059' },
+            fontFamily: {
+              script: ['"Dancing Script"', 'cursive'],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <!-- Lightbox CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
+    />
+  </head>
+  <body class="bg-dark text-gray-200">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+          <div class="flex items-center">
+            <a href="index.html" class="flex items-center">
+              <img src="assets/logo.png" alt="Logo" class="h-10 mr-3" />
+              <span class="font-script text-primary text-2xl">Havana</span>
+            </a>
+          </div>
+          <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="index.html" class="hover:text-primary">Home</a>
+            <a href="about.html" class="hover:text-primary">Über&nbsp;uns</a>
+            <a href="menu.html" class="hover:text-primary">Menü</a>
+            <a href="gallery.html" class="text-primary">Galerie</a>
+            <a href="contact.html" class="hover:text-primary">Kontakt</a>
+          </div>
+          <div class="md:hidden flex items-center">
+            <button id="navToggle" class="text-gray-200 hover:text-primary focus:outline-none">
+              <i class="fas fa-bars fa-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden bg-dark bg-opacity-95 backdrop-blur-sm px-4 pt-2 pb-6 space-y-2 text-sm">
+        <a href="index.html" class="block py-2 px-2 hover:text-primary">Home</a>
+        <a href="about.html" class="block py-2 px-2 hover:text-primary">Über uns</a>
+        <a href="menu.html" class="block py-2 px-2 hover:text-primary">Menü</a>
+        <a href="gallery.html" class="block py-2 px-2 text-primary">Galerie</a>
+        <a href="contact.html" class="block py-2 px-2 hover:text-primary">Kontakt</a>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="mt-16 h-64 md:h-80 flex items-center justify-center bg-cover bg-center" style="background-image: url('assets/hero2.jpg')">
+      <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+      <div class="relative z-10 text-center" data-aos="fade-down">
+        <h1 class="text-4xl md:text-6xl font-extrabold">Galerie</h1>
+        <p class="mt-4 italic text-lg md:text-xl">Eindrücke aus der Havana Lounge Bar</p>
+      </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <main class="py-20">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6" data-aos="fade-up">
+          <a href="assets/hero1.jpg" data-lightbox="gallery" data-title="Stimmungsvolle Abende">
+            <img src="assets/hero1.jpg" alt="Hero 1" class="w-full h-64 object-cover rounded-lg shadow-lg hover:opacity-80 transition" />
+          </a>
+          <a href="assets/hero2.jpg" data-lightbox="gallery" data-title="Feiern in Linz">
+            <img src="assets/hero2.jpg" alt="Hero 2" class="w-full h-64 object-cover rounded-lg shadow-lg hover:opacity-80 transition" />
+          </a>
+          <a href="assets/cocktails.jpg" data-lightbox="gallery" data-title="Exquisite Cocktails">
+            <img src="assets/cocktails.jpg" alt="Cocktails" class="w-full h-64 object-cover rounded-lg shadow-lg hover:opacity-80 transition" />
+          </a>
+          <a href="assets/drinks.jpg" data-lightbox="gallery" data-title="Erfrischende Drinks">
+            <img src="assets/drinks.jpg" alt="Drinks" class="w-full h-64 object-cover rounded-lg shadow-lg hover:opacity-80 transition" />
+          </a>
+          <a href="assets/shisha.jpg" data-lightbox="gallery" data-title="Aromatische Shishas">
+            <img src="assets/shisha.jpg" alt="Shisha" class="w-full h-64 object-cover rounded-lg shadow-lg hover:opacity-80 transition" />
+          </a>
+          <a href="assets/cocktail-mojito.png" data-lightbox="gallery" data-title="Mojito">
+            <img src="assets/cocktail-mojito.png" alt="Mojito" class="w-full h-64 object-cover rounded-lg shadow-lg hover:opacity-80 transition" />
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-gray-800 py-12">
+      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+        <div>
+          <img src="assets/logo.png" alt="Logo" class="h-12 mb-4" />
+          <p>
+            Entspanne in der modernsten Bar von Linz und genieße unsere
+            exquisiten Cocktails, erfrischenden Drinks und aromatischen
+            Shishas.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-primary font-bold mb-3">Kontakt</h4>
+          <ul class="space-y-1">
+            <li>Adresse: Wiener&nbsp;Str.&nbsp;27a, 4020&nbsp;Linz</li>
+            <li>
+              Telefon:
+              <a href="tel:+436764205852" class="text-primary"
+                >+43&nbsp;676&nbsp;420&nbsp;5852</a
+              >
+            </li>
+            <li>
+              E‑Mail:
+              <a href="mailto:havana.lounge.bar@gmx.at" class="text-primary"
+                >havana.lounge.bar@gmx.at</a
+              >
+            </li>
+            <li>
+              Öffnungszeiten: Mo–Do + So 08:00–01:00,
+              Fr–Sa 08:00–02:00
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-primary font-bold mb-3">Navigation</h4>
+          <nav class="space-y-1">
+            <a href="index.html" class="block hover:text-primary">Home</a>
+            <a href="about.html" class="block hover:text-primary">Über&nbsp;uns</a>
+            <a href="menu.html" class="block hover:text-primary">Menü</a>
+            <a href="gallery.html" class="block text-primary">Galerie</a>
+            <a href="contact.html" class="block hover:text-primary">Kontakt</a>
+          </nav>
+          <h4 class="text-primary font-bold mt-6 mb-3">Folge uns</h4>
+          <div class="flex space-x-4 text-xl">
+            <a href="#" class="hover:text-primary" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="hover:text-primary" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 text-center text-xs text-gray-500">
+        © 2025 Havana Lounge Bar. Alle Rechte vorbehalten.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+      AOS.init({ once: true });
+      const navToggle = document.getElementById('navToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      navToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
