@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Havan Lounge Bar – Cocktails, Drinks &amp; Shisha</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Extend the default Tailwind theme with our custom colours
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dark: '#0a0a0a',
+              primary: '#c5a059',
+            },
+            fontFamily: {
+              script: ['"Dancing Script"', 'cursive'],
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- AOS library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+  </head>
+  <body class="bg-dark text-gray-200">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <a href="index.html" class="flex items-center">
+              <img src="assets/logo.png" alt="Havana Lounge Bar Logo" class="h-10 mr-3" />
+              <span class="font-script text-primary text-2xl">Havana</span>
+            </a>
+          </div>
+          <!-- Desktop Nav -->
+          <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="index.html" class="hover:text-primary">Home</a>
+            <a href="about.html" class="hover:text-primary">Über&nbsp;uns</a>
+            <a href="menu.html" class="hover:text-primary">Menü</a>
+            <a href="gallery.html" class="hover:text-primary">Galerie</a>
+            <a href="contact.html" class="hover:text-primary">Kontakt</a>
+          </div>
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="navToggle"
+              class="text-gray-200 hover:text-primary focus:outline-none"
+            >
+              <i class="fas fa-bars fa-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Nav Menu -->
+      <div
+        id="mobileMenu"
+        class="md:hidden hidden bg-dark bg-opacity-95 backdrop-blur-sm px-4 pt-2 pb-6 space-y-2 text-sm"
+      >
+        <a href="index.html" class="block py-2 px-2 hover:text-primary">Home</a>
+        <a href="about.html" class="block py-2 px-2 hover:text-primary">Über uns</a>
+        <a href="menu.html" class="block py-2 px-2 hover:text-primary">Menü</a>
+        <a href="gallery.html" class="block py-2 px-2 hover:text-primary">Galerie</a>
+        <a href="contact.html" class="block py-2 px-2 hover:text-primary">Kontakt</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative h-screen bg-cover bg-center flex items-center justify-center"
+      style="background-image: url('assets/hero1.jpg')"
+    >
+      <div
+        class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm"
+      ></div>
+      <div
+        class="relative z-10 text-center px-4"
+        data-aos="fade-up"
+      >
+        <span class="text-primary text-lg tracking-widest uppercase">Premium Qualität</span>
+        <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">
+          Cocktails, Drinks &amp; Shisha
+        </h1>
+        <p class="mt-4 text-xl italic">Schau vorbei!</p>
+        <a
+          href="menu.html"
+          class="mt-8 inline-block px-8 py-3 bg-primary text-dark font-semibold rounded-full hover:bg-yellow-600 transition-colors"
+          >Zur&nbsp;Karte</a
+        >
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20" id="about">
+      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+            Die modernste Bar in Linz!
+          </h2>
+          <h3 class="text-2xl md:text-3xl font-light mb-6">
+            Die besten Cocktails, Drinks &amp; Shishas in edler Atmosphäre
+          </h3>
+          <p class="mb-6 leading-relaxed">
+            Havana Lounge &amp; Bar in Linz – Entspanne in der modernsten Bar der
+            Stadt. Wir mixen dir die besten Cocktails in Linz und bauen die
+            feinste Shisha. Schaue mit deinen Freunden vorbei und schalte ab
+            bei lässiger Musik in edlem Ambiente. Wir freuen uns dich zu sehen!
+          </p>
+          <a
+            href="about.html"
+            class="text-primary font-medium hover:underline"
+            >Mehr über uns</a
+          >
+        </div>
+        <div data-aos="fade-left">
+          <img
+            src="assets/cocktail-mojito.png"
+            alt="Cocktail Mojito"
+            class="w-full rounded-lg shadow-2xl"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="py-20 bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 text-center" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+          Drinks, Cocktails &amp; Shisha
+        </h2>
+        <p class="max-w-2xl mx-auto mb-12">
+          Überzeuge dich selbst von der Qualität unserer Bar. Hier kannst du dir
+          vorab ansehen, was wir anbieten.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Cocktails Card -->
+          <div
+            class="group relative overflow-hidden rounded-xl shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <img
+              src="assets/cocktails.jpg"
+              alt="Cocktails"
+              class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-700 p-4"
+            >
+              <h3 class="text-xl font-bold mb-2">Die besten Cocktails</h3>
+              <p class="text-sm mb-4">
+                Jeder unserer Cocktails wird frisch zubereitet. Wir achten auf
+                hochwertige Zutaten und perfekte Mixgetränke – für einen
+                unvergleichlichen Geschmack.
+              </p>
+              <a
+                href="menu.html#cocktails"
+                class="px-4 py-2 bg-primary text-dark rounded-full text-sm"
+                >Mehr erfahren</a
+              >
+            </div>
+          </div>
+          <!-- Drinks Card -->
+          <div
+            class="group relative overflow-hidden rounded-xl shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <img
+              src="assets/drinks.jpg"
+              alt="Drinks"
+              class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-700 p-4"
+            >
+              <h3 class="text-xl font-bold mb-2">Erfrischende Drinks</h3>
+              <p class="text-sm mb-4">
+                Ob kühle Limonaden oder kräftige Longdrinks – bei uns findest du
+                erstklassige Erfrischungen von bekannten Herstellern.
+              </p>
+              <a
+                href="menu.html#drinks"
+                class="px-4 py-2 bg-primary text-dark rounded-full text-sm"
+                >Mehr erfahren</a
+              >
+            </div>
+          </div>
+          <!-- Shisha Card -->
+          <div
+            class="group relative overflow-hidden rounded-xl shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <img
+              src="assets/shisha.jpg"
+              alt="Shisha"
+              class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-700"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-700 p-4"
+            >
+              <h3 class="text-xl font-bold mb-2">Feinste Shisha</h3>
+              <p class="text-sm mb-4">
+                Fruchtig, süß, sauer oder mit viel Minze? Unser Shishameister
+                zaubert dir die perfekte Wasserpfeife – einfach vorbeikommen
+                und genießen!
+              </p>
+              <a
+                href="menu.html#shisha"
+                class="px-4 py-2 bg-primary text-dark rounded-full text-sm"
+                >Mehr erfahren</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-gray-800 py-12">
+      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+        <!-- About -->
+        <div>
+          <img
+            src="assets/logo.png"
+            alt="Havana Lounge Bar Logo"
+            class="h-12 mb-4"
+          />
+          <p>
+            Entspanne in der modernsten Bar von Linz und genieße unsere
+            exquisiten Cocktails, erfrischenden Drinks und aromatischen
+            Shishas.
+          </p>
+        </div>
+        <!-- Contact Info -->
+        <div>
+          <h4 class="text-primary font-bold mb-3">Kontakt</h4>
+          <ul class="space-y-1">
+            <li>Adresse: Wiener&nbsp;Str.&nbsp;27a, 4020&nbsp;Linz</li>
+            <li>
+              Telefon:
+              <a href="tel:+436764205852" class="text-primary"
+                >+43&nbsp;676&nbsp;420&nbsp;5852</a
+              >
+            </li>
+            <li>
+              E‑Mail:
+              <a href="mailto:havana.lounge.bar@gmx.at" class="text-primary"
+                >havana.lounge.bar@gmx.at</a
+              >
+            </li>
+            <li>
+              Öffnungszeiten: Mo–Do + So 08:00–01:00,
+              Fr–Sa 08:00–02:00
+            </li>
+          </ul>
+        </div>
+        <!-- Navigation & Social -->
+        <div>
+          <h4 class="text-primary font-bold mb-3">Navigation</h4>
+          <nav class="space-y-1">
+            <a href="index.html" class="block hover:text-primary">Home</a>
+            <a href="about.html" class="block hover:text-primary">Über&nbsp;uns</a>
+            <a href="menu.html" class="block hover:text-primary">Menü</a>
+            <a href="gallery.html" class="block hover:text-primary">Galerie</a>
+            <a href="contact.html" class="block hover:text-primary">Kontakt</a>
+          </nav>
+          <h4 class="text-primary font-bold mt-6 mb-3">Folge uns</h4>
+          <div class="flex space-x-4 text-xl">
+            <a
+              href="#"
+              class="hover:text-primary"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="#"
+              class="hover:text-primary"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 text-center text-xs text-gray-500">
+        © 2025 Havana Lounge Bar. Alle Rechte vorbehalten.
+      </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({ once: true });
+      // Mobile nav toggle
+      const navToggle = document.getElementById('navToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      navToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
