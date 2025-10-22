@@ -18,7 +18,7 @@
       };
     </script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Montserrat:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Dancing+Script:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -29,6 +29,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
+    <!-- GSAP and ScrollTrigger for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"></script>
   </head>
   <body class="bg-dark text-gray-200">
     <!-- Navigation (same as index) -->
@@ -69,9 +72,9 @@
       class="relative flex items-center justify-center text-center h-64 md:h-96 bg-cover bg-center mt-16"
       style="background-image: url('assets/about-hero.jpg')"
     >
-      <div class="absolute inset-0 bg-black bg-opacity-20"></div>
-      <div class="relative z-10" data-aos="fade-down">
-        <h1 class="text-4xl md:text-6xl font-extrabold">Über uns</h1>
+      <div class="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
+      <div class="relative z-10" id="about-hero-content">
+        <h1 class="text-5xl md:text-7xl font-extrabold">Über uns</h1>
         <p class="mt-4 italic text-lg md:text-xl">
           Lerne unsere Geschichte und Philosophie kennen
         </p>
@@ -211,6 +214,35 @@
       const mobileMenu = document.getElementById('mobileMenu');
       navToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
+      });
+    </script>
+    <!-- GSAP animations -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from('#about-hero-content', {
+          opacity: 0,
+          y: 40,
+          duration: 1.4,
+          ease: 'power2.out',
+        });
+        gsap.utils.toArray('main > div, section').forEach((section) => {
+          const animatables = section.querySelectorAll('[data-aos]');
+          if (animatables.length > 0) {
+            gsap.from(animatables, {
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+                toggleActions: 'play none none none',
+              },
+              opacity: 0,
+              y: 50,
+              duration: 1,
+              stagger: 0.2,
+              ease: 'power2.out',
+            });
+          }
+        });
       });
     </script>
   </body>
