@@ -24,7 +24,7 @@
     </script>
     <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Montserrat:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Dancing+Script:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <!-- Font Awesome for icons -->
@@ -37,6 +37,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
+    <!-- GSAP and ScrollTrigger for smooth animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"></script>
   </head>
   <body class="bg-dark text-gray-200">
     <!-- Navigation -->
@@ -52,11 +55,11 @@
           </div>
           <!-- Desktop Nav -->
           <div class="hidden md:flex space-x-8 text-sm font-medium">
-            <a href="index.html" class="hover:text-primary">Home</a>
-            <a href="about.html" class="hover:text-primary">Über&nbsp;uns</a>
+            <a href="index.html" class="text-primary">Home</a>
             <a href="menu.html" class="hover:text-primary">Menü</a>
             <a href="gallery.html" class="hover:text-primary">Galerie</a>
             <a href="contact.html" class="hover:text-primary">Kontakt</a>
+            <a href="about.html" class="hover:text-primary">Über&nbsp;uns</a>
           </div>
           <!-- Mobile menu button -->
           <div class="md:hidden flex items-center">
@@ -74,32 +77,43 @@
         id="mobileMenu"
         class="md:hidden hidden bg-dark bg-opacity-95 backdrop-blur-sm px-4 pt-2 pb-6 space-y-2 text-sm"
       >
-        <a href="index.html" class="block py-2 px-2 hover:text-primary">Home</a>
-        <a href="about.html" class="block py-2 px-2 hover:text-primary">Über uns</a>
+        <a href="index.html" class="block py-2 px-2 text-primary">Home</a>
         <a href="menu.html" class="block py-2 px-2 hover:text-primary">Menü</a>
         <a href="gallery.html" class="block py-2 px-2 hover:text-primary">Galerie</a>
         <a href="contact.html" class="block py-2 px-2 hover:text-primary">Kontakt</a>
+        <a href="about.html" class="block py-2 px-2 hover:text-primary">Über uns</a>
       </div>
     </nav>
 
-    <!-- Hero Section with looping video background -->
+    <!-- Hero Section with immersive video background -->
     <section class="relative h-screen overflow-hidden flex items-center justify-center">
       <!-- Video element: autoplay, muted and looped to immerse the visitor in the lounge atmosphere -->
-      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute inset-0 w-full h-full object-cover brightness-75"
+      >
         <source src="assets/hero-video.mp4" type="video/mp4" />
       </video>
       <!-- Dark overlay to improve text legibility -->
-      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm"></div>
       <!-- Hero content -->
-      <div class="relative z-10 text-center px-4" data-aos="fade-up">
-        <span class="text-primary text-lg tracking-widest uppercase">Premium&nbsp;Qualität</span>
-        <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">
+      <div class="relative z-10 text-center px-4" id="hero-content">
+        <span
+          class="text-primary text-base md:text-lg tracking-widest uppercase"
+          >Premium&nbsp;Qualität</span
+        >
+        <h1
+          class="mt-4 text-5xl md:text-7xl font-extrabold leading-tight font-sans"
+        >
           Cocktails, Drinks &amp; Shisha
         </h1>
-        <p class="mt-4 text-xl italic">Schau vorbei!</p>
+        <p class="mt-6 text-xl md:text-2xl italic">Schau vorbei!</p>
         <a
           href="menu.html"
-          class="mt-8 inline-block px-8 py-3 bg-primary text-dark font-semibold rounded-full hover:bg-yellow-600 transition-colors"
+          class="mt-10 inline-block px-10 py-4 bg-primary text-dark font-semibold rounded-full hover:bg-yellow-600 transition-colors"
           >Zur&nbsp;Karte</a
         >
       </div>
@@ -312,6 +326,37 @@
       const mobileMenu = document.getElementById('mobileMenu');
       navToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
+      });
+    </script>
+    <!-- GSAP animations -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        gsap.registerPlugin(ScrollTrigger);
+        // Fade in hero content
+        gsap.from('#hero-content', {
+          opacity: 0,
+          y: 40,
+          duration: 1.5,
+          ease: 'power2.out',
+        });
+        // Animate sections on scroll
+        gsap.utils.toArray('section').forEach((section) => {
+          const animatables = section.querySelectorAll('[data-aos]');
+          if (animatables.length > 0) {
+            gsap.from(animatables, {
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+                toggleActions: 'play none none none',
+              },
+              opacity: 0,
+              y: 50,
+              duration: 1,
+              stagger: 0.2,
+              ease: 'power2.out',
+            });
+          }
+        });
       });
     </script>
   </body>
