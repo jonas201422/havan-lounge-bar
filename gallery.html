@@ -18,7 +18,7 @@
       };
     </script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Dancing+Script:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Montserrat:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -30,9 +30,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
     <!-- Lightbox CSS -->
-    <!-- GSAP and ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
@@ -74,9 +71,9 @@
 
     <!-- Page Header -->
     <section class="mt-16 h-64 md:h-80 flex items-center justify-center bg-cover bg-center" style="background-image: url('assets/hero2.jpg')">
-      <div class="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
-      <div class="relative z-10 text-center" id="gallery-hero-content">
-        <h1 class="text-5xl md:text-7xl font-extrabold">Galerie</h1>
+      <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+      <div class="relative z-10 text-center" data-aos="fade-down">
+        <h1 class="text-4xl md:text-6xl font-extrabold">Galerie</h1>
         <p class="mt-4 italic text-lg md:text-xl">Eindrücke aus der Havana Lounge Bar</p>
       </div>
     </section>
@@ -175,31 +172,6 @@
       const mobileMenu = document.getElementById('mobileMenu');
       navToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
-      });
-    </script>
-    <!-- GSAP animations -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from('#gallery-hero-content', {
-          opacity: 0,
-          y: 40,
-          duration: 1.4,
-          ease: 'power2.out',
-        });
-        // Animate gallery items on scroll
-        gsap.from('.grid > a', {
-          scrollTrigger: {
-            trigger: '.grid',
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
-          opacity: 0,
-          y: 60,
-          duration: 1.2,
-          stagger: 0.15,
-          ease: 'power2.out',
-        });
       });
     </script>
   </body>

@@ -18,7 +18,7 @@
       };
     </script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Dancing+Script:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&family=Montserrat:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -29,9 +29,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
     />
-    <!-- GSAP and ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"></script>
   </head>
   <body class="bg-dark text-gray-200">
     <!-- Navigation -->
@@ -45,12 +42,11 @@
             </a>
           </div>
           <div class="hidden md:flex space-x-8 text-sm font-medium">
-            <!-- Order: Home, Menü (active), Galerie, Kontakt, Über uns -->
             <a href="index.html" class="hover:text-primary">Home</a>
+            <a href="about.html" class="hover:text-primary">Über&nbsp;uns</a>
             <a href="menu.html" class="text-primary">Menü</a>
             <a href="gallery.html" class="hover:text-primary">Galerie</a>
             <a href="contact.html" class="hover:text-primary">Kontakt</a>
-            <a href="about.html" class="hover:text-primary">Über&nbsp;uns</a>
           </div>
           <div class="md:hidden flex items-center">
             <button id="navToggle" class="text-gray-200 hover:text-primary focus:outline-none">
@@ -61,19 +57,18 @@
       </div>
       <div id="mobileMenu" class="md:hidden hidden bg-dark bg-opacity-95 backdrop-blur-sm px-4 pt-2 pb-6 space-y-2 text-sm">
         <a href="index.html" class="block py-2 px-2 hover:text-primary">Home</a>
+        <a href="about.html" class="block py-2 px-2 hover:text-primary">Über uns</a>
         <a href="menu.html" class="block py-2 px-2 text-primary">Menü</a>
         <a href="gallery.html" class="block py-2 px-2 hover:text-primary">Galerie</a>
         <a href="contact.html" class="block py-2 px-2 hover:text-primary">Kontakt</a>
-        <a href="about.html" class="block py-2 px-2 hover:text-primary">Über uns</a>
       </div>
     </nav>
 
     <!-- Page Header -->
     <section class="mt-16 h-64 md:h-80 flex items-center justify-center bg-cover bg-center" style="background-image: url('assets/hero1.jpg')">
-      <!-- Lighten hero overlay -->
-      <div class="absolute inset-0 bg-black bg-opacity-20 backdrop-blur-sm"></div>
-      <div class="relative z-10 text-center" id="menu-hero-content">
-        <h1 class="text-5xl md:text-7xl font-extrabold">Menü</h1>
+      <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+      <div class="relative z-10 text-center" data-aos="fade-down">
+        <h1 class="text-4xl md:text-6xl font-extrabold">Menü</h1>
         <p class="mt-4 italic text-lg md:text-xl">Entdecke unsere Drinks, Cocktails, Shishas &amp; Snacks</p>
       </div>
     </section>
@@ -312,31 +307,6 @@
       const mobileMenu = document.getElementById('mobileMenu');
       navToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
-      });
-    </script>
-    <!-- GSAP animations -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from('#menu-hero-content', {
-          opacity: 0,
-          y: 40,
-          duration: 1.4,
-          ease: 'power2.out',
-        });
-        gsap.utils.toArray('main section').forEach((section) => {
-          gsap.from(section, {
-            scrollTrigger: {
-              trigger: section,
-              start: 'top 80%',
-              toggleActions: 'play none none none',
-            },
-            opacity: 0,
-            y: 60,
-            duration: 1,
-            ease: 'power2.out',
-          });
-        });
       });
     </script>
   </body>
