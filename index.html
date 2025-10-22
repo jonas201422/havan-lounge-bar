@@ -82,19 +82,17 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section
-      class="relative h-screen bg-cover bg-center flex items-center justify-center"
-      style="background-image: url('assets/hero1.jpg')"
-    >
-      <div
-        class="absolute inset-0 bg-black bg-opacity-10 backdrop-blur-sm"
-      ></div>
-      <div
-        class="relative z-10 text-center px-4"
-        data-aos="fade-up"
-      >
-        <span class="text-primary text-lg tracking-widest uppercase">Premium Qualität</span>
+    <!-- Hero Section with looping video background -->
+    <section class="relative h-screen overflow-hidden flex items-center justify-center">
+      <!-- Video element: autoplay, muted and looped to immerse the visitor in the lounge atmosphere -->
+      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+        <source src="assets/hero-video.mp4" type="video/mp4" />
+      </video>
+      <!-- Dark overlay to improve text legibility -->
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <!-- Hero content -->
+      <div class="relative z-10 text-center px-4" data-aos="fade-up">
+        <span class="text-primary text-lg tracking-widest uppercase">Premium&nbsp;Qualität</span>
         <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">
           Cocktails, Drinks &amp; Shisha
         </h1>
